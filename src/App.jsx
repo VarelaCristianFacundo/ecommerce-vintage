@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import AboutUs from './pages/AboutUs/AboutUs';
 import { useState } from 'react';
+import Cart from './pages/Cart/Cart'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Menu handleLoginClick={handleLoginClick} handleLogoutClick={handleLogoutClick} isLoggedIn={isLoggedIn} />
       <main className="App-header">
       <Routes>
+        <Route path='/cart' element={<Cart />} />
         <Route path='/aboutus' element={<AboutUs />} />
         <Route path='/*' element={<Home isLoggedIn={isLoggedIn}/>} />
       </Routes>

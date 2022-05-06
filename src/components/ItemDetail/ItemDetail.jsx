@@ -1,21 +1,33 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Col, Card, Container, Row } from 'react-bootstrap';
+import { Col, Card, Container, Row, Nav } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 import Rating from '@mui/material/Rating';
 import CartContext from '../../store/cart-context';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ item }) => {
 
     const [talle, setTalle] = useState('m');
     const cartCtx = useContext(CartContext);
+    const [confirmar, setConfirmar] = useState(false);
+    const [cantidad, setCantidad] = useState(0);
 
-    useEffect (() => {
-        console.log(cartCtx);
+    useEffect(() => {
+        
     })
 
-    function onAdd(cantidad) {
-        cartCtx.addProduct(item)
+    function onAdd(cant) {
+        setConfirmar(true);
+        setCantidad(cant);
+    }
+
+    function onConfirmar() {
+        cartCtx.addProduct({
+            name: item.titulo,
+            cantidad: cantidad,
+            talle: talle
+        });
     }
 
     return (
@@ -39,9 +51,19 @@ const ItemDetail = ({ item }) => {
                         <button className="btn btn-talle col-1" onClick={() => setTalle('xl')}>XL</button>
                         <br></br>
                         <hr></hr>
-                        <Row xs={2}>
-                            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
-                        </Row>
+
+                        {
+                            !confirmar ? (
+                                <Row xs={2}>
+                                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                                </Row>
+                            ) : (
+                                <button className="btn btn-gray" onClick={onConfirmar} style={{ marginTop: "5px" }}>
+                                    <Nav.Link to="/cart" as={Link}>Confirmar Compra</Nav.Link></button>
+                            )
+                        }
+
+
                     </Col>
                 </Row>
             </Container>

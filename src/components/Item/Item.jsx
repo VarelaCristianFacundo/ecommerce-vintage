@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
 
-    function onAdd(cantidad) {
-        console.log(cantidad);
-    }
-
     return (
         <Col>
             <Card>
