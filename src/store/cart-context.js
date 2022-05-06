@@ -30,6 +30,8 @@ export const CartContextProvider = ({ children }) => {
 
 
     const removeProduct = (id) => {
+        console.log(id);
+
         setProductList(productList.filter(i => i.id !== id))
     }
 

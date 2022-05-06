@@ -29,11 +29,11 @@ const CartWidget = () => {
                     <Offcanvas.Title>Mi Carrito</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    <Row xs={1} md={1} className="g-1">
-                        {cartCtx.products.map((item) => <CartWidgetDetail item={item} key={item.id} />)}
+                    <Row xs={1} md={2} className="g-3">
+                        {cartCtx.products.map((item) => <CartWidgetDetail item={item} />)}
                     </Row>
-                    <Link to="/cart" style={{ textDecoration: 'none' }}>                        
-                        <button onClick={handleClose} className="btn btn-gray" style={{ marginTop: "5px" }}>
+                    <Link clas to="/cart" style={{ textDecoration: 'none'}}>                        
+                        <button onClick={handleClose} className="btn btn-gray" style={{ marginTop: "5px",  width: "100%" }}>
                         <div className="cart-widget"><FontAwesomeIcon icon={faCartShopping} size="1x" /></div>
                         Ir a mi carrito</button>
                     </Link>
