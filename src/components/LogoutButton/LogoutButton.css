@@ -9,3 +9,16 @@
     border-color: #FFFFFA;
     background-color: #FFFFFA;
 }
+
+.btn-white:active {
+    background-color: #FFFFFA;
+    color: #080705;
+    border-color: #FFFFFA;
+}
+
+.btn-white:focus {
+    background-color: #FFFFFA;
+    color: #080705;
+    border-color: #FFFFFA;
+    box-shadow: 0 0 0 0.25rem rgb(236, 244, 255);
+}

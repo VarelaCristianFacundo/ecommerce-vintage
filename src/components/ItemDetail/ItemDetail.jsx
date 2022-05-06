@@ -24,7 +24,9 @@ const ItemDetail = ({ item }) => {
 
     function onConfirmar() {
         cartCtx.addProduct({
+            imagen: item.imagen,
             name: item.titulo,
+            precio: item.precio,
             cantidad: cantidad,
             talle: talle
         });
