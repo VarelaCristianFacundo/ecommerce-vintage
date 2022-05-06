@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Card } from 'react-bootstrap';
-import ItemCount from '../ItemCount/ItemCount';
+import '../../components/ItemDetail/ItemDetail.css'
 import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
@@ -17,10 +17,12 @@ const Item = ({ item }) => {
                 </Link>
                 <Card.Body>
                     <Card.Title>{item.titulo}</Card.Title>
-                    <Card.Text>
-                        {item.cartTexto}
-                    </Card.Text>
-                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                    <Card.Subtitle className='textoStyle'>Precio:  <span className='precioStyle'>$ {item.precio}</span></Card.Subtitle>
+                    <br />                    
+                    <Link to={`/item/${item.id}`} style={{ textDecoration: 'none' }}>
+                        <button className="btn btn-gray" style={{ marginTop: "5px" }}>Ver Detalle</button>
+                    </Link>
+
                 </Card.Body>
             </Card>
         </Col>
