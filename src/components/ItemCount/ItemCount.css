@@ -1,0 +1,40 @@
+.btn-gray {
+    background-color: #40434E;
+    color: #FFFFFA;
+    border-color: #FFFFFA;
+}
+
+.btn-gray:hover {
+    color: #080705;
+    border-color: #40434E;
+    background-color: #FFFFFA;
+}
+
+.btn-gray:focus {
+    border-radius: 10%;    
+    background-color: #40434E;
+    color: #FFFFFA;
+    border-color: #FFFFFA;
+    box-shadow: 0 0 0 0.25rem rgb(173 181 189 / 25%);
+}
+
+.btn-masmenos {
+    border-radius: 10%;    
+    background-color: #40434E;
+    color: #FFFFFA;
+    border-color: #FFFFFA;
+}
+
+.btn-masmenos:hover {
+    color: #080705;
+    border-color: #40434E;
+    background-color: #FFFFFA;
+}
+
+.btn-masmenos:focus {
+    border-radius: 10%;    
+    background-color: #40434E;
+    color: #FFFFFA;
+    border-color: #FFFFFA;
+    box-shadow: 0 0 0 0.25rem rgb(173 181 189 / 25%);
+}

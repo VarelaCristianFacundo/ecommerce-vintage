@@ -1,0 +1,30 @@
+.precioStyle{
+    font-size: 20px;
+    font-weight: bold;
+    color: #B12704;
+}
+
+.textoStyle{
+    color: #565959;
+}
+
+.btn-talle {
+    color: #080705;
+    border-color: #40434E;
+    background-color: #FFFFFA;
+}
+
+.btn-talle:hover {
+    border-radius: 10%;    
+    background-color: #40434E;
+    color: #FFFFFA;
+    border-color: #FFFFFA;
+}
+
+.btn-talle:focus {
+    border-radius: 10%;    
+    background-color: #40434E;
+    color: #FFFFFA;
+    border-color: #FFFFFA;
+    box-shadow: 0 0 0 0.25rem rgb(173 181 189 / 25%);
+}
