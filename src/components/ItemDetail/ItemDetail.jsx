@@ -14,7 +14,7 @@ const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState(0);
 
     useEffect(() => {
-        
+
     })
 
     function onAdd(cant) {
@@ -60,12 +60,11 @@ const ItemDetail = ({ item }) => {
                                     <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
                                 </Row>
                             ) : (
-                                <button className="btn btn-gray" onClick={onConfirmar} style={{ marginTop: "5px" }}>
-                                    <Nav.Link to="/cart" as={Link}>Confirmar Compra</Nav.Link></button>
+                                <Link to="/cart" style={{ textDecoration: 'none' }}>
+                                    <button onClick={onConfirmar} className="btn btn-gray" style={{ marginTop: "5px" }}>Confirmar Compra</button>
+                                </Link>
                             )
                         }
-
-
                     </Col>
                 </Row>
             </Container>
