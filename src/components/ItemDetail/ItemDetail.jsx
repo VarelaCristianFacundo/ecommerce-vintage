@@ -5,6 +5,8 @@ import './ItemDetail.css';
 import Rating from '@mui/material/Rating';
 import CartContext from '../../store/cart-context';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+
 
 const ItemDetail = ({ item }) => {
 
@@ -22,15 +24,50 @@ const ItemDetail = ({ item }) => {
         setCantidad(cant);
     }
 
-    function onConfirmar() {
-        cartCtx.addProduct({
-            id: item.id,
-            imagen: item.imagen,
-            name: item.titulo,
-            precio: item.precio,
-            cantidad: cantidad,
-            talle: talle
-        });
+    function onConfirmar() {        
+        if (cartCtx.isInCart(item.id)) {
+            swal({
+                title: "Atención !",
+                text: "Este producto ya se encuentra agregado en el carrito, está seguro que desea agregarlo ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Producto agregado !", {
+                            icon: "success",
+                        },
+                            cartCtx.addProduct({
+                                id: item.id,
+                                imagen: item.imagen,
+                                name: item.titulo,
+                                precio: item.precio,
+                                cantidad: cantidad,
+                                talle: talle
+                            })
+                        );
+                    } else {
+                        swal("Siga viendo nuestras ofertas!");
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+        else
+        {
+            cartCtx.addProduct({
+                id: item.id,
+                imagen: item.imagen,
+                name: item.titulo,
+                precio: item.precio,
+                cantidad: cantidad,
+                talle: talle
+            })
+        }
+
+
     }
 
     return (

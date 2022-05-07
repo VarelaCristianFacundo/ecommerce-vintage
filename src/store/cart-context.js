@@ -36,11 +36,16 @@ export const CartContextProvider = ({ children }) => {
     }
 
     const clear = () => {
-
+        setProductList([]);
     }
 
     const isInCart = (id) => {
-        return true;
+        return productList.some((i) => {
+            if (i.id === id)
+                return true;
+            else
+                return false;            
+        })
     }
     
 
