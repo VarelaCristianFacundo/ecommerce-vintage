@@ -5,7 +5,7 @@ import './ItemDetail.css';
 import Rating from '@mui/material/Rating';
 import CartContext from '../../store/cart-context';
 import { Link } from 'react-router-dom';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 
 const ItemDetail = ({ item }) => {
@@ -24,39 +24,38 @@ const ItemDetail = ({ item }) => {
         setCantidad(cant);
     }
 
-    function onConfirmar() {        
+    function onConfirmar() {
         if (cartCtx.isInCart(item.id)) {
-            swal({
-                title: "Atención !",
-                text: "Este producto ya se encuentra agregado en el carrito, está seguro que desea agregarlo ?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
+            Swal.fire({
+                title: "Atención",
+                text: "Este producto ya se encuentra agregado en el carrito. ¿Está seguro que desea agregarlo?",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: '#B12704',
+                cancelButtonColor: '#40434E',
+                confirmButtonText: 'Si, ¡ Agregalo !',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    cartCtx.addProduct({
+                        id: item.id,
+                        imagen: item.imagen,
+                        name: item.titulo,
+                        precio: item.precio,
+                        cantidad: cantidad,
+                        talle: talle
+                    })
+                    Swal.fire({
+                        title: "¡Producto Agregado!",
+                        text: "Su producto ha sido agregado al carrito.",
+                        icon: "success",
+                        confirmButtonColor: '#40434E',
+                        confirmButtonText:'¡ Gracias por su compra !',                                                
+                    })
+                }
             })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Producto agregado !", {
-                            icon: "success",
-                        },
-                            cartCtx.addProduct({
-                                id: item.id,
-                                imagen: item.imagen,
-                                name: item.titulo,
-                                precio: item.precio,
-                                cantidad: cantidad,
-                                talle: talle
-                            })
-                        );
-                    } else {
-                        swal("Siga viendo nuestras ofertas!");
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
         }
-        else
-        {
+        else {
             cartCtx.addProduct({
                 id: item.id,
                 imagen: item.imagen,
