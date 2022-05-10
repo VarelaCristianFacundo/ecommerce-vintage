@@ -15,7 +15,7 @@ function Menu(props) {
             <Container fluid>
                 <Navbar.Brand  to="/" as={Link}>
                     <img
-                        src="/american.png"
+                        src="./american.png"
                         alt="logo"
                         width={100}
                         height={100}                          
