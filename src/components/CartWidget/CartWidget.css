@@ -3,3 +3,9 @@
     cursor: pointer;
     text-align: center;
   }
+
+  .units {
+    text-decoration: none;
+    position: relative;    
+    left: 10%;    
+  }

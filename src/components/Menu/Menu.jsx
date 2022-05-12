@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Menu.css';
 import { Navbar, Container, Nav, NavDropdown, Button, FormControl, Form, InputGroup } from 'react-bootstrap';
 import { BiSearchAlt } from 'react-icons/bi';
@@ -6,9 +6,13 @@ import CartWidget from '../CartWidget/CartWidget';
 import LoginControl from '../LoginControl/LoginControl';
 import { Link } from 'react-router-dom';
 import '../LogoutButton/LogoutButton.css';
+import CartContext from '../../store/cart-context';
 
 
 function Menu(props) {
+
+    const cartCtx = useContext(CartContext);
+
     return (
         //   Utilizando as={Link} en componentes de react bootstrap obtiene el mismo comportamiento de Link
         <Navbar fixed={'top'} className={'position-sticky ps-0'} variant="dark" style={{backgroundColor: "#40434E"}} expand="lg">
@@ -48,7 +52,8 @@ function Menu(props) {
                         </Form>
                     </Nav>        
                     <LoginControl {...props} />   
-                    <CartWidget />
+                    {/* Render condicional para mostrar el carrito solo si hay items */}
+                    {cartCtx.totalCount() > 0 && <CartWidget />}                    
                 </Navbar.Collapse>
             </Container>
         </Navbar>

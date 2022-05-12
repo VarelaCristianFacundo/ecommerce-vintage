@@ -23,6 +23,8 @@ const CartWidget = () => {
             <Button onClick={handleShow} className='ms-5 btn-white'>
                 <div className="cart-widget">
                     <FontAwesomeIcon icon={faCartShopping} size="2x" />
+                    {cartCtx.totalCount() > 0 && <span className="units">{cartCtx.totalCount()}</span>}
+                    
                 </div>
             </Button>
             <Offcanvas show={show} onHide={handleClose} placement={'end'}>

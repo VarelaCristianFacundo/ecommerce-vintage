@@ -24,7 +24,6 @@ header{
   margin: 5px;
   background-color: #FFFFFA;
   min-height: 80vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;    
@@ -41,4 +40,8 @@ header{
   to {
     transform: rotate(360deg);
   }
+}
+
+.bg-dark{
+  background-color: black;
 }

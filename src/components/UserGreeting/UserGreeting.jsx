@@ -3,10 +3,12 @@ import ItemList from '../ItemList/ItemList';
 import { ropa } from '../../ropa';
 import { Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import { Spinner } from 'react-bootstrap';
 
 const UserGreeting = () => {
 
   const [prendas, setPrendas] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // fetch
   // async function traerProductosConFetch () {
@@ -43,18 +45,28 @@ const UserGreeting = () => {
   }
 
   useEffect(() => {
+    setLoading(true);
     traerProductos()
-      .then(prendaArray => setPrendas(prendaArray));
+      .then(prendaArray => setPrendas(prendaArray))
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
   }, [])
 
   return (
-    <div className='App-header'>      
-      <Routes>
-        <Route path='/' element={<ItemList ropa={prendas} />} />
-        <Route path='item/:id' element={<ItemDetailContainer ropa={prendas} />} />
-        <Route path='category/:id' element={<ItemList ropa={prendas} />} />
-      </Routes>
-    </div>
+    <>
+      {loading ? (
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>) : (
+        <div className='App-header'>
+          <Routes>
+            <Route path='/' element={<ItemList ropa={prendas} />} />
+            <Route path='item/:id' element={<ItemDetailContainer ropa={prendas} />} />
+            <Route path='category/:id' element={<ItemList ropa={prendas} />} />
+          </Routes>
+        </div>
+      )}
+    </>
   )
 }
 

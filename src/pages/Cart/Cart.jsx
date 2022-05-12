@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ConfirmarCompra from '../../components/ConfirmarCompra/ConfirmarCompra'
 
-const Cart = () => {
+const Cart = () => {  
+
   return (
-    <div>Cart</div>
+    <div>
+          <ConfirmarCompra />
+    </div>
   )
 }
 

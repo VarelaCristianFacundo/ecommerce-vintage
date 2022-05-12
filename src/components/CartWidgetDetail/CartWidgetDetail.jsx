@@ -16,12 +16,15 @@ const CartWidgetDetail = ({ item }) => {
                 <Card.Img variant="top" src={item.imagen} height={100} width={100} style={{ objectFit: "contain" }} />
                 <Card.Body style={{ width:"100%" }}>
                     <Card.Title>{item.titulo}</Card.Title>
-                    <Card.Subtitle style={{marginBottom:0}} className='textoStyle'><span className='precioStyle'>$ {item.precio}</span></Card.Subtitle>
+                    <Card.Subtitle style={{marginBottom:0}} className='textoStyle'><span className='precioStyle'>$ {item.precio * item.cantidad}</span></Card.Subtitle>
                     <Card.Text style={{marginBottom:0}}>
                         {item.name}
                     </Card.Text>
                     <Card.Text style={{marginBottom:0}}>
                         Talle: {item.talle}
+                    </Card.Text>
+                    <Card.Text style={{marginBottom:0}}>
+                        Precio Unitario: ${item.precio}
                     </Card.Text>
                     <Card.Text style={{marginBottom:0}}>
                         Cantidad: {item.cantidad}

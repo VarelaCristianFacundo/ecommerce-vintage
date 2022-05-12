@@ -15,13 +15,15 @@ const ItemDetail = ({ item }) => {
     const [confirmar, setConfirmar] = useState(false);
     const [cantidad, setCantidad] = useState(0);
 
-    useEffect(() => {
-
-    })
-
     function onAdd(cant) {
-        setConfirmar(true);
-        setCantidad(cant);
+        // if (cant + cartCtx.unitsPerProduct(item.id) > item.stock) {
+        //     alert("No tenemos stock para su compra")
+        // }
+        // else {
+            setConfirmar(true);
+            setCantidad(cant);
+        // }
+
     }
 
     function onConfirmar() {
@@ -50,7 +52,7 @@ const ItemDetail = ({ item }) => {
                         text: "Su producto ha sido agregado al carrito.",
                         icon: "success",
                         confirmButtonColor: '#40434E',
-                        confirmButtonText:'¡ Gracias por su compra !',                                                
+                        confirmButtonText: '¡ Gracias por su compra !',
                     })
                 }
             })
@@ -81,6 +83,7 @@ const ItemDetail = ({ item }) => {
                         <Rating name="size-small" defaultValue={2} size="small" />
                         <hr></hr>
                         <Card.Text className='textoStyle'>{item.cartTexto}</Card.Text>
+                        <Card.Text className='textoStyle'>Stock: {item.stock}</Card.Text>
                         <Card.Text className='textoStyle'>Precio:  <span className='precioStyle'>$ {item.precio}</span></Card.Text>
                         <hr></hr>
                         <button className="btn btn-talle col-1" onClick={() => setTalle('xs')}>XS</button>
@@ -88,7 +91,7 @@ const ItemDetail = ({ item }) => {
                         <button className="btn btn-talle col-1" onClick={() => setTalle('m')}>M</button>
                         <button className="btn btn-talle col-1" onClick={() => setTalle('l')}>L</button>
                         <button className="btn btn-talle col-1" onClick={() => setTalle('xl')}>XL</button>
-                        <br></br>
+                        <br />
                         <hr></hr>
 
                         {
@@ -97,7 +100,7 @@ const ItemDetail = ({ item }) => {
                                     <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
                                 </Row>
                             ) : (
-                                <Link to="/cart" style={{ textDecoration: 'none' }}>
+                                <Link to="/" style={{ textDecoration: 'none' }}>
                                     <button onClick={onConfirmar} className="btn btn-gray" style={{ marginTop: "5px" }}>Confirmar Compra</button>
                                 </Link>
                             )

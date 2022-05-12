@@ -10,7 +10,7 @@ export const CartContextProvider = ({ children }) => {
 
     const addProduct = (product) => {
 
-    const indice = productList.findIndex(p => p.name === product.name && p.talle === product.talle)
+    const indice = productList.findIndex(p => p.name === product.name && p.talle === product.talle)    
 
         if (indice !== -1) {
             setProductList(
@@ -30,8 +30,6 @@ export const CartContextProvider = ({ children }) => {
 
 
     const removeProduct = (id) => {
-        console.log(id);
-
         setProductList(productList.filter(i => i.id !== id))
     }
 
@@ -47,7 +45,18 @@ export const CartContextProvider = ({ children }) => {
                 return false;            
         })
     }
+
+    const totalCount = () => {
+        return productList.reduce((total, item) => total + item.cantidad, 0)
+    }
     
+    const totalPrice = () => {
+        return productList.reduce((total, item) => total + item.cantidad * item.precio, 0)
+    }
+
+    const unitsPerProduct = (id) => {
+        return productList.find((item) => item.id === id).cantidad;
+    }
 
     return (
         <CartContext.Provider value={{
@@ -55,7 +64,10 @@ export const CartContextProvider = ({ children }) => {
             addProduct: addProduct,
             removeProduct: removeProduct,
             clear: clear,
-            isInCart: isInCart
+            isInCart: isInCart,
+            totalCount: totalCount,
+            totalPrice: totalPrice,
+            unitsPerProduct: unitsPerProduct
         }}>
             {children}
         </CartContext.Provider>

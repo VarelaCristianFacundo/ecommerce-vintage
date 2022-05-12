@@ -4,7 +4,7 @@ export const ropa = [
             "titulo": "Sueter rayado",
             "imagen": "https://us.123rf.com/450wm/siraphol/siraphol1610/siraphol161004945/64521603-su%C3%A9ter-para-la-ropa-aislada-en-el-fondo-blanco.jpg?ver=6",
             "cartTexto": "Suéter de cuello redondo para hombre, 100% algodón, Cuenta con tela elástica en el cuello, dobladillo y puños para mantenerte abrigado.",
-            "stock": 5,
+            "stock": 10,
             "precio": 2000,
             "category": "otonio"
         },
