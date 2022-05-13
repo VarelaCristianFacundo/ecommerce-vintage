@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList';
-import { ropa } from '../../ropa';
 import { Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Spinner } from 'react-bootstrap';
