@@ -1,4 +1,5 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react'
 import { Row } from 'react-bootstrap'
@@ -15,15 +16,23 @@ const ConfirmarCompra = () => {
                 {cartCtx.products.map((item, key) => <CartWidgetDetail item={item} key={key} />)}
             </Row>
             {cartCtx.products.length > 0 ? (
-            <>
-                <h4>Precio Total: $ {cartCtx.totalPrice()}</h4>
-                <button onClick={cartCtx.clear} className="btn btn-danger" style={{ marginTop: "5px", width: "20%", border: 0 }}>
-                    <div className="cart-widget"><FontAwesomeIcon icon={faTrash} size="1x" /></div>
-                    Vaciar Carrito
-                </button>
-            </>
+                <>
+                    <div>
+                        <h4>Precio Total: $ {cartCtx.totalPrice()}</h4>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <button onClick={cartCtx.clear} className="btn btn-gray" style={{ width: "8%", marginRight: "2%", borderColor: "#40434E", display: 'flex' }}>
+                            Confirmar Compra
+                            <div className="cart-widget"><FontAwesomeIcon icon={faCheck} size="1x" style={{ marginLeft: '100%'}} /></div>
+                        </button>
+                        <button onClick={cartCtx.clear} className="btn btn-danger" style={{ width: "4%", borderColor:'red', display: 'flex' }}>
+                            Vaciar
+                            <div className="cart-widget"><FontAwesomeIcon icon={faTrash} size="1x" style={{ marginLeft: '100%'}} /></div>
+                        </button>
+                    </div>
+                </>
             ) : (
-            <h1>El carrito está vacio</h1>
+                <h1>El carrito está vacio</h1>
             )}
         </div>
     )
