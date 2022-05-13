@@ -20,8 +20,8 @@ const ItemDetail = ({ item }) => {
         //     alert("No tenemos stock para su compra")
         // }
         // else {
-            setConfirmar(true);
-            setCantidad(cant);
+        setConfirmar(true);
+        setCantidad(cant);
         // }
 
     }
@@ -86,23 +86,25 @@ const ItemDetail = ({ item }) => {
                         <Card.Text className='textoStyle'>Stock: {item.stock}</Card.Text>
                         <Card.Text className='textoStyle'>Precio:  <span className='precioStyle'>$ {item.precio}</span></Card.Text>
                         <hr></hr>
-                        <button className="btn btn-talle col-1" onClick={() => setTalle('xs')}>XS</button>
-                        <button className="btn btn-talle col-1" onClick={() => setTalle('s')}>S</button>
-                        <button className="btn btn-talle col-1" onClick={() => setTalle('m')}>M</button>
-                        <button className="btn btn-talle col-1" onClick={() => setTalle('l')}>L</button>
-                        <button className="btn btn-talle col-1" onClick={() => setTalle('xl')}>XL</button>
-                        <br />
-                        <hr></hr>
-
                         {
                             !confirmar ? (
                                 <Row xs={2}>
                                     <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
                                 </Row>
+
                             ) : (
-                                <Link to="/" style={{ textDecoration: 'none' }}>
-                                    <button onClick={onConfirmar} className="btn btn-gray" style={{ marginTop: "5px" }}>Confirmar Compra</button>
-                                </Link>
+                                <>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('xs')}>XS</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('s')}>S</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('m')}>M</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('l')}>L</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('xl')}>XL</button>
+                                    <br />
+                                    <hr></hr>
+                                    <Link to="/" style={{ textDecoration: 'none' }}>
+                                        <button onClick={onConfirmar} className="btn btn-gray" style={{ marginTop: "5px" }}>Confirmar Compra ({cantidad})</button>
+                                    </Link>
+                                </>
                             )
                         }
                     </Col>
