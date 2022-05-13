@@ -4,52 +4,39 @@ import { ropa } from '../../ropa';
 import { Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Spinner } from 'react-bootstrap';
+import { collection, getDocs, getFirestore, query, where, limit } from "firebase/firestore"
 
 const UserGreeting = () => {
 
   const [prendas, setPrendas] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // fetch
-  // async function traerProductosConFetch () {
-  //   return fetch ('url')
-  //     .then(res => res.json())
-  // }
-
-  // useEffect(() => {
-  //   traerProductosConFetch()
-  //     .then(prendaArray => setPrendas(prendaArray));
-  // }, [])
-
-
-  // fetch con un timeout
-  // function traerProductos () {
-  //   const myPromise = new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       fetch ('url')
-  //       .then(productos => resolve(productos));
-
-  //     }, 2000);
-  //   });
-  //   return myPromise;
-  // }
 
   function traerProductos() {
-    const myPromise = new Promise((resolve, reject) => {
-      const productos = ropa;
-      setTimeout(() => {
-        resolve(productos);
-      }, 2000);
-    });
-    return myPromise;
+    // traigo los datos desde la base de Firestore
+    const db = getFirestore();
+    const itemCollection = collection(db, 'items');
+    const q = query(
+      itemCollection,
+      where('precio', '<', 200000),
+      limit(100)
+    );
+
+    return getDocs(q)
   }
 
   useEffect(() => {
-    setLoading(true);
+
     traerProductos()
-      .then(prendaArray => setPrendas(prendaArray))
+      .then(snapshot => {setPrendas(snapshot.docs.map(doc => {
+        return {...doc.data(), id: doc.id}
+      }))
+        
+      })
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));
+
+    setLoading(true);
   }, [])
 
   return (
