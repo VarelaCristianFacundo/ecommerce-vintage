@@ -20,12 +20,10 @@ const UserGreeting = () => {
       where('precio', '<', 200000),
       limit(100)
     );
-
     return getDocs(q)
   }
 
   useEffect(() => {
-
     traerProductos()
       .then(snapshot => {setPrendas(snapshot.docs.map(doc => {
         return {...doc.data(), id: doc.id}

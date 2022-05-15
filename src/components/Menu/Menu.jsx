@@ -53,7 +53,7 @@ function Menu(props) {
                     </Nav>        
                     <LoginControl {...props} />   
                     {/* Render condicional para mostrar el carrito solo si hay items */}
-                    {cartCtx.totalCount() > 0 && <CartWidget />}                    
+                    {(cartCtx.totalCount() > 0 && props.isLoggedIn)  && <CartWidget />}                    
                 </Navbar.Collapse>
             </Container>
         </Navbar>
