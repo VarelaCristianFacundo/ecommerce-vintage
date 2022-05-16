@@ -1,0 +1,8 @@
+.dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active{
+    background-color: #40434E !important;
+}
+
+#dropdown-button-dark-example1{
+    background-color: rgb(64, 67, 78);
+    margin-bottom: 5%;
+}

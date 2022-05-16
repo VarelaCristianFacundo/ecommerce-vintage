@@ -15,7 +15,7 @@ const ItemDetailContainer = ({ ropa }) => {
 
     return (
          // cambiar por item detail
-        <div>       
+        <div> 
             <ItemDetail item={ropaElegida} />            
             {/* <Link to={`/item/${Number(id)+1}`}>Siguiente</Link> */}
         </div>

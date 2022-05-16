@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Col, Card, Container, Row, Nav } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Col, Card, Container, Row } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 import Rating from '@mui/material/Rating';
@@ -16,10 +16,6 @@ const ItemDetail = ({ item }) => {
     const [cantidad, setCantidad] = useState(0);
 
     function onAdd(cant) {
-        // if (cant + cartCtx.unitsPerProduct(item.id) > item.stock) {
-        //     alert("No tenemos stock para su compra")
-        // }
-        // else {
         setConfirmar(true);
         setCantidad(cant);
         // }
@@ -72,7 +68,7 @@ const ItemDetail = ({ item }) => {
     }
 
     return (
-        <div>
+        <div>            
             <Container>
                 <Row>
                     <Col>
