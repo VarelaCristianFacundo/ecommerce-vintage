@@ -3,7 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import { Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Dropdown, Spinner } from 'react-bootstrap';
-import { collection, getDocs, getFirestore, query, where, limit } from "firebase/firestore"
+import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import './UserGreeting.css';
 import db from "../../store/firebase"
 
