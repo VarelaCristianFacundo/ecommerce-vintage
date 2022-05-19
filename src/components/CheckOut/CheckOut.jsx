@@ -56,7 +56,7 @@ const CheckOut = () => {
         e.preventDefault()
         const total = cartCtx.totalPrice()
         const items = cartCtx.products.map(e => { return { id: e.id, title: e.name, price: e.precio, amount: e.cantidad } })
-        const data = { total, dia, items }
+        const data = { buyer, total, dia, items }
         console.log("data", data);
         generateOrder(data)
     }
