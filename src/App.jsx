@@ -6,6 +6,7 @@ import Home from './pages/Home/Home';
 import AboutUs from './pages/AboutUs/AboutUs';
 import { useState } from 'react';
 import Cart from './pages/Cart/Cart'
+import CheckOut from './components/CheckOut/CheckOut';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path='/cart' element={<Cart />} />
         <Route path='/aboutus' element={<AboutUs />} />
+        <Route path='/checkout' element={<CheckOut />} />
         <Route path='/*' element={<Home isLoggedIn={isLoggedIn}/>} />
       </Routes>
         
