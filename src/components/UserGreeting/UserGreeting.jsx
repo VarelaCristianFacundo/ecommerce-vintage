@@ -5,6 +5,7 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Dropdown, Spinner } from 'react-bootstrap';
 import { collection, getDocs, getFirestore, query, where, limit } from "firebase/firestore"
 import './UserGreeting.css';
+import db from "../../store/firebase"
 
 const UserGreeting = () => {
 
@@ -13,8 +14,7 @@ const UserGreeting = () => {
 
 
   function traerProductos(min, max) {
-    // traigo los datos desde la base de Firestore
-    const db = getFirestore();
+    // traigo los datos desde la base de Firestore    
     const itemCollection = collection(db, 'items');
     const q = query(
       itemCollection,
