@@ -90,15 +90,15 @@ const ItemDetail = ({ item }) => {
 
                             ) : (
                                 <>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('xs')}>XS</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('s')}>S</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('m')}>M</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('l')}>L</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('xl')}>XL</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('XS')}>XS</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('S')}>S</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('M')}>M</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('L')}>L</button>
+                                    <button className="btn btn-talle col-1" onClick={() => setTalle('XL')}>XL</button>
                                     <br />
                                     <hr></hr>
                                     <Link to="/" style={{ textDecoration: 'none' }}>
-                                        <button onClick={onConfirmar} className="btn btn-gray" style={{ marginTop: "5px" }}>Confirmar Compra ({cantidad})</button>
+                                        <button onClick={onConfirmar} className="btn btn-graySelected" style={{ marginTop: "5px" }}>Confirmar Compra ({cantidad})</button>
                                     </Link>
                                 </>
                             )

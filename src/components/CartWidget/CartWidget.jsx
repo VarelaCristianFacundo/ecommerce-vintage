@@ -36,7 +36,7 @@ const CartWidget = () => {
                         {cartCtx.products.map((item, key) => <CartWidgetDetail item={item} key={key}/>)}
                     </Row>
                     <Link to="/cart" style={{ textDecoration: 'none'}}>                        
-                        <button onClick={handleClose} className="btn btn-gray" style={{ marginTop: "5px",  width: "80%" }}>
+                        <button onClick={handleClose} className="btn btn-graySelected" style={{ marginTop: "5px",  width: "80%" }}>
                         <div className="cart-widget"><FontAwesomeIcon icon={faCartShopping} size="1x" /></div>
                         Ir a mi carrito</button>
                         <button onClick={cartCtx.clear} className="btn btn-danger" style={{ marginTop: "5px",  width: "20%", border: 0 }}>

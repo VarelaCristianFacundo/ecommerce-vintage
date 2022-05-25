@@ -16,7 +16,7 @@ const Item = ({ item }) => {
                     <Card.Subtitle className='textoStyle'>Precio:  <span className='precioStyle'>$ {item.precio}</span></Card.Subtitle>
                     <br />                    
                     <Link to={`/item/${item.id}`} style={{ textDecoration: 'none' }}>
-                        <button className="btn btn-gray" style={{ marginTop: "5px" }}>Ver Detalle</button>
+                        <button className="btn btn-graySelected" style={{ marginTop: "5px" }}>Ver Detalle</button>
                     </Link>
 
                 </Card.Body>

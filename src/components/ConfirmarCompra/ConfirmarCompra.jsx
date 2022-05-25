@@ -1,5 +1,5 @@
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react'
 import { Row } from 'react-bootstrap'
@@ -26,14 +26,15 @@ const ConfirmarCompra = () => {
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <Link to='/checkout' style={{textDecoration: "none"}}>
-                            <button className="btn btn-gray" style={{ marginRight: "2%", borderColor: "#40434E", display: 'flex' }}>
-                                <div className="cart-widget"><FontAwesomeIcon icon={faCheck} size="1x" style={{ marginLeft: '80%' }} /></div>
+                            <button className="btn btn-graySelected" style={{ borderColor: "#40434E", display: 'flex' }}>
+                                <div className="cart-widget"><FontAwesomeIcon icon={faCartShopping} size="1x"/></div>
                                 Confirmar Compra
                             </button>
                         </Link>
-                        <button onClick={cartCtx.clear} className="btn btn-danger" style={{ width: "8%", borderColor: 'red', display: 'flex' }}>
+                        <div style={{marginLeft:"1%"}}></div>
+                        <button onClick={cartCtx.clear} className="btn btn-danger" style={{ width: "5%", borderColor: 'red', display: 'flex' }}>
                             Vaciar
-                            <div className="cart-widget"><FontAwesomeIcon icon={faTrash} size="1x" style={{ marginLeft: '100%' }} /></div>
+                            <div className="cart-widget"><FontAwesomeIcon icon={faTrash} size="1x" style={{ marginLeft: '80%' }} /></div>
                         </button>
                     </div>
                 </>

@@ -4,6 +4,7 @@ import db from "../../store/firebase"
 import CartContext from '../../store/cart-context'
 import { Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Form } from 'react-bootstrap';
 
 const CheckOut = () => {
 
@@ -63,49 +64,40 @@ const CheckOut = () => {
 
     return (
         <>
-            <h1>Finalizando Compra</h1>
-            <hr />
             {load ? <Spinner animation="border" role="status">
                 <span className="visually-hidden"></span>
             </Spinner>
                 : (!orderID && <div>
-                    <h4>Completar Datos:</h4>
                     <br />
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            name="Nombre"
-                            placeholder="Nombre"
-                            value={Nombre}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <br />
-                        <input
-                            type="email"
-                            name="Email"
-                            placeholder="Email"
-                            value={Email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <br />
-                        <input
-                            type="number"
-                            name="Telefono"
-                            placeholder="Telefono"
-                            value={Telefono}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <br />
-                        <br />
+                    <h1 style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"200px"}}>Para finalizar tu compra</h1>
+                    <h3 style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"200px"}}>Ingresá los siguientes datos</h3>
+                    <br />
+                    <br />
+                    <br />
+                    <Form onSubmit={handleSubmit} style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"200px"}}>
+                    <br />
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{display:"flex", alignItems:"flex-start"}}>Nombre y apellido</Form.Label>
+                            <Form.Control style={{width:"200%"}} type="text" placeholder="Ingrese su nombre" name="Nombre" value={Nombre} onChange={handleInputChange} required />                            
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{display:"flex", alignItems:"flex-start"}}>Correo Electrónico</Form.Label>
+                            <Form.Control style={{width:"200%"}} type="email" placeholder="Ingrese su email" name="Email" value={Email} onChange={handleInputChange} required />
+                            <Form.Text className="text-muted">
+                            </Form.Text>
+                        </Form.Group>
+                        <Form.Group className="mb-3">
+                            <Form.Label style={{display:"flex", alignItems:"flex-start"}}>Número de teléfono</Form.Label>
+                            <Form.Control style={{width:"200%"}} type="number" placeholder="Ingrese su teléfono" name="Telefono" value={Telefono} onChange={handleInputChange} required />
+                            <Form.Text className="text-muted">
+                            </Form.Text>
+                        </Form.Group>
                         <input
                             type="submit"
                             value="Finalizar Compra"
-                            className='btn btn-success'
+                            className='btn btn-graySelected'
                         />
-                    </form>
+                    </Form>
                 </div>)
             }
 
