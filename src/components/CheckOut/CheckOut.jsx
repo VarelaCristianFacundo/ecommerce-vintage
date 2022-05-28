@@ -30,12 +30,6 @@ const CheckOut = () => {
 
     }
 
-    // const updateOrder = () => {
-    //     const documentoModificar = doc(db, "Orders", item.id)
-    //     await updateDoc(documentoModificar.{price:200})
-
-    // }
-
     const generateOrder = async (data) => {
         setLoad(true)
         try {

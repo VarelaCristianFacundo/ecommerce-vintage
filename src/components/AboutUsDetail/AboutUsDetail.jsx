@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import '../../components/AboutUsDetail/AboutUsDetail.css'
 
 const AboutUsDetail = () => {
   return (

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import './Menu.css';
-import { Navbar, Container, Nav, NavDropdown, Button, FormControl, Form, InputGroup } from 'react-bootstrap';
-import { BiSearchAlt } from 'react-icons/bi';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import CartWidget from '../CartWidget/CartWidget';
 import LoginControl from '../LoginControl/LoginControl';
 import { Link } from 'react-router-dom';
@@ -38,18 +37,6 @@ function Menu(props) {
                             <NavDropdown.Item to='/category/otonio' as={Link}>Otoño</NavDropdown.Item>                            
                             <NavDropdown.Item to='/category/primavera' as={Link}>Primavera</NavDropdown.Item>
                         </NavDropdown>
-                        <Form className="d-flex ms-5 mb-2">
-                            <InputGroup>
-                                <FormControl 
-                                    className="btn-search"
-                                    placeholder="Buscar Producto"
-                                    aria-label="Buscar Producto"
-                                />                                
-                                <Button id="button-addon2" className='btn-white-gray'>
-                                    <BiSearchAlt />
-                                </Button>
-                            </InputGroup>
-                        </Form>
                     </Nav>        
                     <LoginControl {...props} />   
                     {/* Render condicional para mostrar el carrito solo si hay items */}

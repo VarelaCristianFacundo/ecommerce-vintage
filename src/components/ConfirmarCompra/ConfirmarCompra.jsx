@@ -25,13 +25,13 @@ const ConfirmarCompra = () => {
                         <h4>Precio Total: $ {cartCtx.totalPrice()}</h4>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
-                        <Link to='/checkout' style={{textDecoration: "none"}}>
+                        <Link to='/checkout' style={{ textDecoration: "none" }}>
                             <button className="btn btn-graySelected" style={{ borderColor: "#40434E", display: 'flex' }}>
-                                <div className="cart-widget"><FontAwesomeIcon icon={faCartShopping} size="1x"/></div>
+                                <div className="cart-widget"><FontAwesomeIcon icon={faCartShopping} size="1x" /></div>
                                 Confirmar Compra
                             </button>
                         </Link>
-                        <div style={{marginLeft:"1%"}}></div>
+                        <div style={{ marginLeft: "1%" }}></div>
                         <button onClick={cartCtx.clear} className="btn btn-danger" style={{ width: "5%", borderColor: 'red', display: 'flex' }}>
                             Vaciar
                             <div className="cart-widget"><FontAwesomeIcon icon={faTrash} size="1x" style={{ marginLeft: '80%' }} /></div>
@@ -39,7 +39,10 @@ const ConfirmarCompra = () => {
                     </div>
                 </>
             ) : (
-                <h1>El carrito está vacio</h1>
+                <>
+                    <img style={{width:"30%"}} src="https://thumbs.dreamstime.com/b/vector-del-carro-de-la-compra-del-supermercado-carro-de-la-compra-vac%C3%ADo-de-la-vista-lateral-aislado-en-el-fondo-blanco-92593244.jpg" alt="" />
+                    <h1>El carrito está vacio</h1>
+                </>
             )}
         </div>
     )

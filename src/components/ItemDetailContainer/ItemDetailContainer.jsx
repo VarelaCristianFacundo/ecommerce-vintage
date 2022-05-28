@@ -9,15 +9,13 @@ const ItemDetailContainer = ({ ropa }) => {
     // useMemo se utiliza para no volver a iterar entre las ropas
     const ropaElegida = useMemo (() => {        
         return ropa.find((item) => {
-            return item.id == id;
+            return item.id === id;
         })
     },[id]) 
 
     return (
-         // cambiar por item detail
         <div> 
             <ItemDetail item={ropaElegida} />            
-            {/* <Link to={`/item/${Number(id)+1}`}>Siguiente</Link> */}
         </div>
     )
 }
