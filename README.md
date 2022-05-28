@@ -1,6 +1,6 @@
 <p align="center">
   <p align="center">    
-    <img src="public/assets/american.svg" alt="AmericanVintage" height="250">    
+    <img src="public/american.svg" alt="AmericanVintage" height="250">    
   </p>
   <p align="center">
     E-commerce Varela
@@ -13,7 +13,7 @@ E-commerce desarrollado en React, que simboliza una feria americana online, para
 
 ## Demo
 
->![alt text](public/assets/americanVintage.gif "Logo")
+>![alt text](public/americanVintage.gif "Logo")
 ---
 
 ## Funcionalidad del proyecto
@@ -25,11 +25,11 @@ Esta web muestra los productos a la venta. Los usuarios pueden agregar o remover
 ----------
 
 *Index*
->![picture alt](public/assets/inicio.JPG "Inicio")
+>![picture alt](public/inicio.JPG "Inicio")
 ----------
 
 *Detalle de Producto*
->![picture alt](public/assets/detalle.JPG "Detalle de Producto")
+>![picture alt](public/detalle.JPG "Detalle de Producto")
 ----------
 
 ---

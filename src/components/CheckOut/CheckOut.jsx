@@ -99,7 +99,7 @@ const CheckOut = () => {
                         </div>
 
                         <div>
-                            <img style={{marginLeft:"5%"}} src="../assets/graciasCompra.png" alt="" />
+                            <img style={{marginLeft:"5%"}} src="./graciasCompra.png" alt="" />
                         </div>
                     </div>)
             }
