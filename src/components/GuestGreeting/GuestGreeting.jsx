@@ -3,7 +3,7 @@ import React from 'react'
 const GuestGreeting = () => {
   return (
     <div>
-      <img src="./pleaseLogin.png" alt="" />
+      <img src="../assets/pleaseLogin.png" alt="" />
     </div>
   )
 }
