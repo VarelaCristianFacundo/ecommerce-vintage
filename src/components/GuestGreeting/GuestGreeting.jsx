@@ -2,7 +2,9 @@ import React from 'react'
 
 const GuestGreeting = () => {
   return (
-    <div>Please sign up.</div>
+    <div>
+      <img src="./pleaseLogin.png" alt="" />
+    </div>
   )
 }
 

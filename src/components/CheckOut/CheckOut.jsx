@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { collection, addDoc } from "firebase/firestore"
 import db from "../../store/firebase"
 import CartContext from '../../store/cart-context'
-import { Spinner } from 'react-bootstrap'
+import { Button, Card, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Form } from 'react-bootstrap';
 
@@ -67,47 +67,63 @@ const CheckOut = () => {
             {load ? <Spinner animation="border" role="status">
                 <span className="visually-hidden"></span>
             </Spinner>
-                : (!orderID && <div>
-                    <br />
-                    <h1 style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"200px"}}>Para finalizar tu compra</h1>
-                    <h3 style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"200px"}}>Ingresá los siguientes datos</h3>
-                    <br />
-                    <br />
-                    <br />
-                    <Form onSubmit={handleSubmit} style={{display:"flex", flexDirection:"column", alignItems:"flex-start", marginLeft:"200px"}}>
-                    <br />
-                        <Form.Group className="mb-3">
-                            <Form.Label style={{display:"flex", alignItems:"flex-start"}}>Nombre y apellido</Form.Label>
-                            <Form.Control style={{width:"200%"}} type="text" placeholder="Ingrese su nombre" name="Nombre" value={Nombre} onChange={handleInputChange} required />                            
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label style={{display:"flex", alignItems:"flex-start"}}>Correo Electrónico</Form.Label>
-                            <Form.Control style={{width:"200%"}} type="email" placeholder="Ingrese su email" name="Email" value={Email} onChange={handleInputChange} required />
-                            <Form.Text className="text-muted">
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label style={{display:"flex", alignItems:"flex-start"}}>Número de teléfono</Form.Label>
-                            <Form.Control style={{width:"200%"}} type="number" placeholder="Ingrese su teléfono" name="Telefono" value={Telefono} onChange={handleInputChange} required />
-                            <Form.Text className="text-muted">
-                            </Form.Text>
-                        </Form.Group>
-                        <input
-                            type="submit"
-                            value="Finalizar Compra"
-                            className='btn btn-graySelected'
-                        />
-                    </Form>
-                </div>)
+                : (!orderID &&
+                    <div style={{ display: "flex", marginTop: "5%" }}>
+                        <div>
+                            <br />
+                            <h1 style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "400px" }}>Para finalizar tu compra</h1>
+                            <h3 style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "400px" }}>Ingresá los siguientes datos</h3>
+                            <br />
+                            <br />
+                            <br />
+                            <Form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "400px" }}>
+                                <br />
+                                <Form.Group className="mb-3">
+                                    <Form.Label style={{ display: "flex", alignItems: "flex-start" }}>Nombre y apellido</Form.Label>
+                                    <Form.Control style={{ width: "150%" }} type="text" placeholder="Ingrese su nombre" name="Nombre" value={Nombre} onChange={handleInputChange} required />
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Label style={{ display: "flex", alignItems: "flex-start" }}>Correo Electrónico</Form.Label>
+                                    <Form.Control style={{ width: "150%" }} type="email" placeholder="Ingrese su email" name="Email" value={Email} onChange={handleInputChange} required />
+                                    <Form.Text className="text-muted">
+                                    </Form.Text>
+                                </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Label style={{ display: "flex", alignItems: "flex-start" }}>Número de teléfono</Form.Label>
+                                    <Form.Control style={{ width: "150%" }} type="number" placeholder="Ingrese su teléfono" name="Telefono" value={Telefono} onChange={handleInputChange} required />
+                                    <Form.Text className="text-muted">
+                                    </Form.Text>
+                                </Form.Group>
+                                <br />
+                                <br />
+                                <input
+                                    type="submit"
+                                    value="Finalizar Compra"
+                                    className='btn btn-graySelected'
+                                />
+                            </Form>
+                        </div>
+
+                        <div>
+                            <img src="./graciasCompra.png" alt="" />
+                        </div>
+                    </div>)
             }
 
             <div>
                 {
                     orderID && (
-                        <div>
-                            <h4>Compra Finalizada con Éxito</h4>
-                            <h4>{`Su código de compra es: ${orderID}`}</h4>
-                            <Link to="/"><h5>Realizar otra compra</h5></Link>
+                        <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginTop:"5%"}}>
+                            <Card style={{ width: '30rem', padding:"1%" }}>
+                                <Card.Img variant="top" src="./gracias.JPG" />
+                                <Card.Body>
+                                    <Card.Title>Compra Finalizada con Éxito</Card.Title>
+                                    <Card.Text>
+                                        {`Su código de compra es: ${orderID}`}
+                                    </Card.Text>
+                                    <Button className='btn-graySelected' to="/" variant="primary"><Link to="/" style={{textDecoration:"none", color:"white"}}>Realizar Otra Compra</Link></Button>
+                                </Card.Body>
+                            </Card>
                         </div>
                     )
                 }
