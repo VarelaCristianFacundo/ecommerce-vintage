@@ -1,20 +1,24 @@
 import LoginButton from "../LoginButton/LoginButton";
+import RegisterButton from "../RegisterButton/RegisterButton";
 import LogoutButton from "../LogoutButton/LogoutButton";
 import React from "react";
 
-function LoginControl({isLoggedIn, handleLoginClick, handleLogoutClick}) {  
+function LoginControl({ isLoggedIn, handleLoginClick, handleLogoutClick, handleRegisterClick, isRegisterIn }) {
 
   let button;
+  let registerButton;
 
   if (isLoggedIn) {
     button = <LogoutButton onClick={handleLogoutClick} />;
   } else {
     button = <LoginButton onClick={handleLoginClick} />;
+    registerButton = <RegisterButton onClick={handleRegisterClick} />;
   }
 
   return (
-    <div>      
-      {button}
+    <div style={{margin:"20px", display:"flex", flexDirection:"row", justifyContent:"space-around", alignContent:"space-evenly", alignItems:"center"}}>
+      <div style={{marginRight:"10px"}}>{button}</div>
+      <div>{registerButton}</div>
     </div>
   );
 }

@@ -11,6 +11,7 @@ import CheckOut from './components/CheckOut/CheckOut';
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isRegisterIn, setisRegisterIn] = useState(false)
 
   const handleLoginClick = () => {
     setIsLoggedIn(true);
@@ -18,11 +19,14 @@ function App() {
   const handleLogoutClick = () => {
     setIsLoggedIn(false);
   }
+  const handleRegisterClick = () => {
+    setisRegisterIn(true);    
+  }
 
   return (
     <div className="App">
 
-      <Menu handleLoginClick={handleLoginClick} handleLogoutClick={handleLogoutClick} isLoggedIn={isLoggedIn} />
+      <Menu handleLoginClick={handleLoginClick} handleLogoutClick={handleLogoutClick} isLoggedIn={isLoggedIn} handleRegisterClick={handleRegisterClick} isRegisterIn={isRegisterIn}/>
       <main className="App-header">
       <Routes>
         <Route path='/cart' element={<Cart />} />
