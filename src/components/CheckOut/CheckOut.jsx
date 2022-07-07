@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { collection, addDoc } from "firebase/firestore"
-import db from "../../store/firebase"
+import { db, auth } from "../../store/firebase"
 import CartContext from '../../store/cart-context'
 import { Button, Card, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'

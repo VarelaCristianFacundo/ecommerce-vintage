@@ -1,5 +1,5 @@
 .App {
-  text-align: center; 
+  /* text-align: center;  */
 }
 
 html{
@@ -22,7 +22,7 @@ header{
 
 .App-header {
   margin: 5px;
-  background-color: #FFFFFA;
+  background-color: #f1f1f1;
   min-height: 80vh;
   flex-direction: column;
   align-items: center;

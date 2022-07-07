@@ -5,7 +5,7 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Dropdown, Spinner } from 'react-bootstrap';
 import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import './UserGreeting.css';
-import db from "../../store/firebase"
+import { db, auth } from "../../store/firebase"
 
 const UserGreeting = () => {
 
