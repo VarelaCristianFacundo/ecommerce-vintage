@@ -36,9 +36,10 @@ function Menu(props) {
                             <NavDropdown.Item to='/category/verano' as={Link}>Verano</NavDropdown.Item>
                             <NavDropdown.Item to='/category/otonio' as={Link}>Otoño</NavDropdown.Item>                            
                             <NavDropdown.Item to='/category/primavera' as={Link}>Primavera</NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown>                        
                     </Nav>        
                     <LoginControl {...props} />   
+                    <Nav className='text-2xl font-semibold'>{props.user}</Nav>
                     {/* Render condicional para mostrar el carrito solo si hay items */}
                     {(cartCtx.totalCount() > 0 && props.isLoggedIn)  && <CartWidget />}                    
                 </Navbar.Collapse>

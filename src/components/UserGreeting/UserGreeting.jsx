@@ -5,9 +5,9 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import { Dropdown, Spinner } from 'react-bootstrap';
 import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import './UserGreeting.css';
-import { db, auth } from "../../store/firebase"
+import { db } from "../../store/firebase"
 
-const UserGreeting = () => {
+const UserGreeting = ({ setUser, setAuthState}) => {
 
   const [prendas, setPrendas] = useState([]);
   const [loading, setLoading] = useState(true);

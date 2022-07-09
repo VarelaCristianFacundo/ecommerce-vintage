@@ -1,6 +1,26 @@
 import React from 'react'
 
-const RegisterControl = () => {
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../store/firebase'
+
+const RegisterControl = ({ setUser, setAuthState }) => {
+
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+
+  const handleLogin = () => {
+    if (email !== null && password !== null) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          setUser(email)
+          setAuthState('home')
+        })
+        .catch((error) => {
+          alert(error)
+        })
+    }
+  }
+
   return (
     <div className='bg-white px-10 py-20 rounded-3xl border-2 bordergray-100'>
       <h1 className='text-5xl font-semibold'>Welcome Back !</h1>
@@ -9,6 +29,8 @@ const RegisterControl = () => {
         <div>
           <label className='text-lg font-medium'>Email</label>
           <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
             placeholder='Enter your email'
           />
@@ -16,8 +38,11 @@ const RegisterControl = () => {
         <div>
           <label className='text-lg font-medium'>Password</label>
           <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className='w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent'
             placeholder='Enter your password'
+            type={'password'}
           />
         </div>
         <div className='mt-8 flex justify-between items-center'>
@@ -31,7 +56,11 @@ const RegisterControl = () => {
           <button className='font-medium text-base text-vintage'>Forgot password</button>
         </div>
         <div className='mt-8 flex flex-col gap-y-4'>
-          <button className='active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  py-3 rounded-xl bg-vintage text-white text-lg font-bold'>Sign in</button>
+          <button 
+            onClick={handleLogin}
+            className='active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all  py-3 rounded-xl bg-vintage text-white text-lg font-bold'>
+            Sign in
+          </button>
           <button className='flex rounder-xl py-3 border-2 border-gray-100 items-center justify-center gap-2 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all'>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.26644 9.76453C6.19903 6.93863 8.85469 4.90909 12.0002 4.90909C13.6912 4.90909 15.2184 5.50909 16.4184 6.49091L19.9093 3C17.7821 1.14545 15.0548 0 12.0002 0C7.27031 0 3.19799 2.6983 1.24023 6.65002L5.26644 9.76453Z" fill="#EA4335" />
@@ -44,7 +73,10 @@ const RegisterControl = () => {
         </div>
         <div className='mt-8 flex justify-center items-center'>
           <p className='font-medium text-base'>Don't have an account?</p>
-          <button className='text-vintage text-base font-medium ml-2'>Sign up</button>
+          <button
+            onClick={() => setAuthState('register')}
+            className='text-vintage text-base font-medium ml-2'>Sign up
+          </button>
         </div>
       </div>
     </div>

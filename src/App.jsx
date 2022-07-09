@@ -1,44 +1,41 @@
+import * as React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import Menu from './components/Menu/Menu';
-import { Routes, Route } from 'react-router-dom';
+import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+
+import { db, auth } from './store/firebase';
+import { onAuthStateChanged } from "firebase/auth";
 import Home from './pages/Home/Home';
-import AboutUs from './pages/AboutUs/AboutUs';
-import { useState } from 'react';
-import Cart from './pages/Cart/Cart'
-import CheckOut from './components/CheckOut/CheckOut';
+import GuestGreeting from './components/GuestGreeting/GuestGreeting';
+import Menu from './components/Menu/Menu';
 
 function App() {
+  const [user, setUser] = React.useState(null);
+  const [authState, setAuthState] = React.useState(null);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [isRegisterIn, setisRegisterIn] = useState(false)
+  React.useEffect(() => {
+    const unSubscribeAuth = onAuthStateChanged(auth,
+      async authenticatedUser => {
+        if (authenticatedUser) {
+          setUser(authenticatedUser.email);
+          setAuthState('home');
+        } else {
+          setUser(null);
+          setAuthState('login');
+        }
+      })
 
-  const handleLoginClick = () => {
-    setIsLoggedIn(true);
-  }
-  const handleLogoutClick = () => {
-    setIsLoggedIn(false);
-  }
-  const handleRegisterClick = () => {
-    setisRegisterIn(true);    
-  }
+    return unSubscribeAuth;
+  }, [user]);
 
-  return (
-    <div className="App">
 
-      <Menu handleLoginClick={handleLoginClick} handleLogoutClick={handleLogoutClick} isLoggedIn={isLoggedIn} handleRegisterClick={handleRegisterClick} isRegisterIn={isRegisterIn}/>
-      <main className="App-header">
-      <Routes>
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/aboutus' element={<AboutUs />} />
-        <Route path='/checkout' element={<CheckOut />} />
-        <Route path='/*' element={<Home isLoggedIn={isLoggedIn}/>} />
-      </Routes>
-        
-      </main>
-      
-    </div>
-  );
+  if (authState === null) return <div className='font-bold text-center'>Loading...</div>;
+  if (authState === 'login') return <> <Menu /><GuestGreeting setAuthState={setAuthState} setUser={setUser} /></>;
+  if (authState === 'register') return <Register setAuthState={setAuthState} setUser={setUser} />;
+  if (user) return (<Login user={user} setAuthState={setAuthState} setUser={setUser} />)
+
 }
 
 export default App;
