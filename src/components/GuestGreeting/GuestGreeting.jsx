@@ -1,6 +1,5 @@
 import React from 'react'
 import RegisterControl from '../RegisterControl/RegisterControl';
-import './GuestGreeting.css';
 
 
 const GuestGreeting = ({setUser, setAuthState}) => {

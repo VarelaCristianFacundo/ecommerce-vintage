@@ -12,8 +12,8 @@ const CartWidgetDetail = ({ item }) => {
 
     return (
         <Col>
-            <Card style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                <Card.Img variant="top" src={item.imagen} height={100} width={100} style={{ objectFit: "contain" }} />
+            <Card className='m-1' style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                <Card.Img className='w-40 h-40 m-4' variant="top" src={item.imagen} height={100} width={100} style={{ objectFit: "contain" }} />
                 <Card.Body style={{ width:"170%", display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                     <Card.Title>{item.titulo}</Card.Title>
                     <Card.Text style={{marginBottom:0, fontSize:"16px" }}>
@@ -30,7 +30,7 @@ const CartWidgetDetail = ({ item }) => {
                     <div style={{fontWeight: "bold", fontSize:"13px"}}>Cantidad: {item.cantidad}</div>                         
                     </Card.Text>
                 </Card.Body>
-                <button onClick={onRemover} className="btn btn-danger" style={{ position: "absolute", right: 0, top: 0 }}>X</button>
+                <button onClick={onRemover} className="btn btn-danger h-10 w-10" style={{ position: "absolute", right: 0, top: 0 }}>X</button>
             </Card>
         </Col>
     )

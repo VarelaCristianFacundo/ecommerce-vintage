@@ -7,9 +7,7 @@ import Register from './components/Auth/Register';
 
 import { db, auth } from './store/firebase';
 import { onAuthStateChanged } from "firebase/auth";
-import Home from './pages/Home/Home';
 import GuestGreeting from './components/GuestGreeting/GuestGreeting';
-import Menu from './components/Menu/Menu';
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -32,7 +30,7 @@ function App() {
 
 
   if (authState === null) return <div className='font-bold text-center'>Loading...</div>;
-  if (authState === 'login') return <> <Menu /><GuestGreeting setAuthState={setAuthState} setUser={setUser} /></>;
+  if (authState === 'login') return <GuestGreeting setAuthState={setAuthState} setUser={setUser} />;
   if (authState === 'register') return <Register setAuthState={setAuthState} setUser={setUser} />;
   if (user) return (<Login user={user} setAuthState={setAuthState} setUser={setUser} />)
 

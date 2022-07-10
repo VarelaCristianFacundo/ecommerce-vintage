@@ -68,33 +68,35 @@ const ItemDetail = ({ item }) => {
     }
 
     return (
-        <div>            
+        <div>
             <Container>
-                <Row>
-                    <Col>
-                        <Card.Img src={item.imagen} height={350} style={{ objectFit: "contain" }} />
+                <Row className='py-10'>
+                    <Col className='px-20'>
+                        <Card.Img className='bg-white px-10 py-4 w-100 h-50 rounded-3xl border-2 bordergray-100' src={item.imagen} height={350} style={{ objectFit: "contain" }} />
                     </Col>
-                    <Col>
-                        <Card.Title>{item.titulo}</Card.Title>
-                        <Rating name="size-small" defaultValue={2} size="small" />
+                    <Col className='text-center'>
+                        <Card.Title className='mt-5'>{item.titulo}</Card.Title>
+                        <Rating className='mt-2' name="size-small" defaultValue={2} size="small" />
                         <hr></hr>
-                        <Card.Text className='textoStyle'>{item.cartTexto}</Card.Text>
-                        <Card.Text className='textoStyle'>Stock: {item.stock}</Card.Text>
-                        <Card.Text className='textoStyle'>Precio:  <span className='precioStyle'>$ {item.precio}</span></Card.Text>
+                        <Card.Text className='textoStyle mt-2'>{item.cartTexto}</Card.Text>
+                        <Card.Text className='textoStyle mt-2'>Stock: {item.stock}</Card.Text>
+                        <Card.Text className='textoStyle mt-2 mb-2'>Precio:  <span className='precioStyle'>$ {item.precio}</span></Card.Text>
                         <hr></hr>
                         {
                             !confirmar ? (
-                                <Row xs={2}>
-                                    <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
-                                </Row>
+                                <div className='px-24 mt-4'>
+                                    <Row className='w-100 px-8'>
+                                        <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+                                    </Row>
+                                </div>
 
                             ) : (
                                 <>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('XS')}>XS</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('S')}>S</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('M')}>M</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('L')}>L</button>
-                                    <button className="btn btn-talle col-1" onClick={() => setTalle('XL')}>XL</button>
+                                    <button className="btn btn-talle col-1 m-3" onClick={() => setTalle('XS')}>XS</button>
+                                    <button className="btn btn-talle col-1 m-3" onClick={() => setTalle('S')}>S</button>
+                                    <button className="btn btn-talle col-1 m-3" onClick={() => setTalle('M')}>M</button>
+                                    <button className="btn btn-talle col-1 m-3" onClick={() => setTalle('L')}>L</button>
+                                    <button className="btn btn-talle col-1 m-3" onClick={() => setTalle('XL')}>XL</button>
                                     <br />
                                     <hr></hr>
                                     <Link to="/" style={{ textDecoration: 'none' }}>

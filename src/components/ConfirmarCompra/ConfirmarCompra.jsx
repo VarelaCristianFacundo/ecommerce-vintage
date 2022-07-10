@@ -15,19 +15,19 @@ const ConfirmarCompra = () => {
 
     return (
         <div>
-            <Row xs={1} md={1} className="g-1">
-                {cartCtx.products.map((item, key) => <CartWidgetDetail item={item} key={key} />)}
+            <Row xs={1} md={1} className="g-1 px-80 ml-80 mr-80">
+                {cartCtx.products.map((item, key) => <div><CartWidgetDetail item={item} key={key} /></div>)}
             </Row>
             {cartCtx.products.length > 0 ? (
                 <>
 
                     <div>
-                        <h4>Precio Total: $ {cartCtx.totalPrice()}</h4>
+                        <h4 className='text-2xl font-semibold text-center mt-2 mb-4'>Precio Total: $ {cartCtx.totalPrice()}</h4>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                         <Link to='/checkout' style={{ textDecoration: "none" }}>
                             <button className="btn btn-graySelected" style={{ borderColor: "#40434E", display: 'flex' }}>
-                                <div className="cart-widget"><FontAwesomeIcon icon={faCartShopping} size="1x" /></div>
+                                <div className="cart-widget ml-1 mr-1"><FontAwesomeIcon icon={faCartShopping} size="1x" /></div>
                                 Confirmar Compra
                             </button>
                         </Link>
