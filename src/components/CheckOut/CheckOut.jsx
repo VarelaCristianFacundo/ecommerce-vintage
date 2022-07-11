@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { collection, addDoc } from "firebase/firestore"
-import { db, auth } from "../../store/firebase"
+import { db } from "../../store/firebase"
 import CartContext from '../../store/cart-context'
 import { Button, Card, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -62,12 +62,12 @@ const CheckOut = () => {
                 <span className="visually-hidden"></span>
             </Spinner>
                 : (!orderID &&
-                    <div style={{ display: "flex", marginTop: "5%" }}>
-                        <div>
+                    <div className='bg-white px-10 py-10s' style={{ display: "flex", marginTop: "4%" }}>
+                        <div className='bg-white px-10 py-20 mr-20 pr-40 rounded-3xl border-2 bordergray-100'>
                             <br />
-                            <h1 style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "200px" }}>Para finalizar tu compra</h1>
-                            <h3 style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "200px" }}>Ingresá los siguientes datos</h3>
+                            <h1 className='text-4xl font-semibold' style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "200px" }}>Para finalizar tu compra</h1>
                             <br />
+                            <h3 className='text-2xl font-semibold' style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "200px" }}>Ingresá los siguientes datos</h3>
                             <br />
                             <br />
                             <Form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", marginLeft: "200px" }}>
@@ -90,16 +90,18 @@ const CheckOut = () => {
                                 </Form.Group>
                                 <br />
                                 <br />
-                                <input
-                                    type="submit"
-                                    value="Finalizar Compra"
-                                    className='btn btn-graySelected'
-                                />
+                                <div className='px-12'>
+                                    <input
+                                        type="submit"
+                                        value="Finalizar Compra"
+                                        className='btn btn-graySelected px-5 py-2 rounded-lg'
+                                    />
+                                </div>
                             </Form>
                         </div>
 
-                        <div>
-                            <img style={{marginLeft:"5%"}} src="./graciasCompra.png" alt="" />
+                        <div className='bg-white px-20 py-20 rounded-3xl border-2 bordergray-100'>
+                            <img style={{ marginLeft: "5%" }} src="./graciasCompra.png" alt="" />
                         </div>
                     </div>)
             }
@@ -107,15 +109,17 @@ const CheckOut = () => {
             <div>
                 {
                     orderID && (
-                        <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginTop:"5%"}}>
-                            <Card style={{ width: '30rem', padding:"1%" }}>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "5%" }}>
+                            <Card className='bg-white px-10 py-20 mr-20 pr-40 rounded-3xl border-2 bordergray-100' style={{ width: '30rem', padding: "1%" }}>
                                 <Card.Img variant="top" src="https://elcomercio.pe/resizer/SRg8HsrwVKRmEBikuiHTLS5G3iY=/580x330/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/MNXPPXB6ORB3TJET6L52BAXZWM.jpg" />
                                 <Card.Body>
-                                    <Card.Title as='h2'>Compra Finalizada con Éxito</Card.Title>
-                                    <Card.Text as='h5'>
+                                    <Card.Title className='text-center font-medium text-lg mt-4' as='h2'>Compra Finalizada con Éxito</Card.Title>
+                                    <Card.Text className='text-center font-medium text-lg text-gray-500 mt-4' as='h5'>
                                         {`Su código de compra es: ${orderID}`}
                                     </Card.Text>
-                                    <Button className='btn-graySelected' to="/" variant="primary"><Link to="/" style={{textDecoration:"none", color:"white"}}>Realizar Otra Compra</Link></Button>
+                                    <div className='display-flex mt-4 content-center align-center items-center self-auto'>
+                                        <Button className='btn-graySelected' to="/" variant="primary"><Link to="/" style={{ textDecoration: "none", color: "white" }}>Realizar Otra Compra</Link></Button>
+                                    </div>
                                 </Card.Body>
                             </Card>
                         </div>

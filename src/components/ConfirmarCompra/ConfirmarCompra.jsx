@@ -40,8 +40,10 @@ const ConfirmarCompra = () => {
                 </>
             ) : (
                 <>
-                    <img style={{width:"30%"}} src="https://thumbs.dreamstime.com/b/vector-del-carro-de-la-compra-del-supermercado-carro-de-la-compra-vac%C3%ADo-de-la-vista-lateral-aislado-en-el-fondo-blanco-92593244.jpg" alt="" />
-                    <h1>El carrito está vacio</h1>
+                    <div style={{display: "flex", flexDirection:"column"}} className='mt-4 content-center align-center items-center self-auto'>
+                        <img style={{ width: "30%" }} src="https://thumbs.dreamstime.com/b/vector-del-carro-de-la-compra-del-supermercado-carro-de-la-compra-vac%C3%ADo-de-la-vista-lateral-aislado-en-el-fondo-blanco-92593244.jpg" alt="carrito" />
+                        <h1 className='font-medium text-5xl font-semibold text-gray-500 mt-4'>El carrito está vacio</h1>
+                    </div>
                 </>
             )}
         </div>
