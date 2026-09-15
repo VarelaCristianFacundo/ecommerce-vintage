@@ -1,8 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import { vi } from 'vitest'
+import App from './App'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+// App suscribe a onAuthStateChanged al montar. Se stubea el modulo de Firebase
+// para que el test no dependa de red ni de credenciales reales.
+vi.mock('./store/firebase', () => ({ db: {}, auth: {} }))
+vi.mock('firebase/auth', () => ({ onAuthStateChanged: () => () => {} }))
+
+test('muestra el estado de carga mientras resuelve la sesion', () => {
+  render(<App />)
+  expect(screen.getByText(/loading/i)).toBeInTheDocument()
+})

@@ -50,3 +50,17 @@ Esta web muestra los productos a la venta. Los usuarios pueden agregar o remover
 > - [X] Promises y Hooks.
 
 ----------
+## Scripts
+
+El proyecto usa Vite.
+
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Levanta el servidor de desarrollo |
+| `npm run build` | Compila el sitio en `build/` |
+| `npm run preview` | Sirve localmente lo compilado |
+| `npm run lint` | Corre ESLint |
+| `npm test` | Corre las pruebas con Vitest |
+| `npm run deploy` | Publica `build/` en GitHub Pages |
+
+El sitio se publica bajo `/ecommerce-vintage/`, configurado en `base` dentro de `vite.config.js`.
