@@ -1,13 +1,16 @@
 import { render, screen } from '@testing-library/react'
-import { vi } from 'vitest'
 import App from './App'
 
-// App suscribe a onAuthStateChanged al montar. Se stubea el modulo de Firebase
-// para que el test no dependa de red ni de credenciales reales.
-vi.mock('./store/firebase', () => ({ db: {}, auth: {} }))
-vi.mock('firebase/auth', () => ({ onAuthStateChanged: () => () => {} }))
+// El catalogo y la sesion son locales (src/store/catalog.js y src/store/auth.js),
+// asi que el test no necesita stubear ningun servicio externo.
 
 test('muestra el estado de carga mientras resuelve la sesion', () => {
   render(<App />)
   expect(screen.getByText(/loading/i)).toBeInTheDocument()
+})
+
+test('sin sesion guardada ofrece iniciar sesion', async () => {
+  localStorage.clear()
+  render(<App />)
+  expect(await screen.findByRole('heading', { name: /welcome back/i })).toBeInTheDocument()
 })

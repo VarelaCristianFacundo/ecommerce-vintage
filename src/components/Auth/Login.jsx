@@ -8,8 +8,7 @@ import AboutUs from '../../pages/AboutUs/AboutUs';
 import Cart from '../../pages/Cart/Cart'
 import CheckOut from '../../components/CheckOut/CheckOut';
 
-import { signOut } from 'firebase/auth';
-import { auth } from '../../store/firebase';
+import { signOut } from '../../store/auth';
 
 function Login({
   user,
@@ -32,7 +31,7 @@ function Login({
   }
   const handleLogoutClick = () => {
     setIsLoggedIn(false);
-    signOut(auth)
+    signOut()
       .then(() => {
         setUser(null);
         setAuthState('login');

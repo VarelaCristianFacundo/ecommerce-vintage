@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../store/firebase'
+import { signIn } from '../../store/auth'
 
 const RegisterControl = ({ setUser, setAuthState }) => {
 
@@ -10,13 +9,13 @@ const RegisterControl = ({ setUser, setAuthState }) => {
 
   const handleLogin = () => {
     if (email !== null && password !== null) {
-      signInWithEmailAndPassword(auth, email, password)
+      signIn(email, password)
         .then(() => {
           setUser(email)
           setAuthState('home')
         })
         .catch((error) => {
-          alert(error)
+          alert(error.message)
         })
     }
   }

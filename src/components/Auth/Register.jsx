@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { auth } from '../../store/firebase'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUser } from '../../store/auth'
 
 const Register = ({ setUser, setAuthState }) => {
 
@@ -10,13 +9,13 @@ const Register = ({ setUser, setAuthState }) => {
 
     const onSignUpHandle = () => {
         if (email !== null && password !== null) {
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((user) => {
-                    setUser(user.user.email)
+            createUser(email, password)
+                .then((usuario) => {
+                    setUser(usuario.email)
                     setAuthState('home')
                 })
                 .catch((error) => {
-                    console.log(error)
+                    alert(error.message)
                 })
         }
     }

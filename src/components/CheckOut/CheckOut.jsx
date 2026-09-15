@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { collection, addDoc } from "firebase/firestore"
-import { db } from "../../store/firebase"
+import { createOrder } from "../../store/catalog"
 import CartContext from '../../store/cart-context'
 import { Button, Card, Spinner } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -33,16 +32,19 @@ const CheckOut = () => {
     const generateOrder = async (data) => {
         setLoad(true)
         try {
-            const col = collection(db, "Orders")
-            const order = await addDoc(col, data)
-            setOrderID(order.id)
-            setLoad(false)
+            // La orden se guarda en localStorage. Lo unico que esta pantalla
+            // necesita es el codigo para mostrar el comprobante.
+            const id = await createOrder(data)
+            setOrderID(id)
             cartCtx.clear()
-            console.log(order);
-            console.log(order.id);
         }
         catch (error) {
-
+            alert("No se pudo registrar la compra: " + error.message)
+        }
+        finally {
+            // Antes solo se apagaba el spinner en el camino feliz, asi que un
+            // fallo dejaba la pantalla cargando para siempre.
+            setLoad(false)
         }
     }
 

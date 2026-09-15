@@ -5,8 +5,7 @@ import './App.css';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 
-import { db, auth } from './store/firebase';
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from './store/auth';
 import GuestGreeting from './components/GuestGreeting/GuestGreeting';
 
 function App() {
@@ -14,8 +13,8 @@ function App() {
   const [authState, setAuthState] = React.useState(null);
 
   React.useEffect(() => {
-    const unSubscribeAuth = onAuthStateChanged(auth,
-      async authenticatedUser => {
+    const unSubscribeAuth = onAuthStateChanged(
+      (authenticatedUser) => {
         if (authenticatedUser) {
           setUser(authenticatedUser.email);
           setAuthState('home');

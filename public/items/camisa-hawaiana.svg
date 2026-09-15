@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Camisa hawaiana">
+  <rect width="600" height="450" fill="#e8c37a"/>
+  <g transform="translate(300 195)">
+    <path d="M-95 -70 L-45 -95 L0 -75 L45 -95 L95 -70 L70 -20 L52 -30 L52 95 L-52 95 L-52 -30 L-70 -20 Z"
+          fill="#d99a4e" stroke="#8c5a2b" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M0 -75 L0 95" stroke="#8c5a2b" stroke-width="3" opacity="0.55"/>
+  </g>
+  <text x="300" y="378" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#8c5a2b">Camisa</text>
+  <text x="300" y="414" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#8c5a2b">hawaiana</text>
+</svg>

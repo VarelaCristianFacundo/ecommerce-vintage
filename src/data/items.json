@@ -1,0 +1,146 @@
+[
+  {
+    "id": "campera-jean-forrada",
+    "titulo": "Campera de jean forrada",
+    "precio": 8900,
+    "stock": 4,
+    "category": "invierno",
+    "cartTexto": "Campera de jean con interior de corderito. Corte clásico, calce holgado.",
+    "imagen": "./items/campera-jean-forrada.svg"
+  },
+  {
+    "id": "sweater-lana-trenzado",
+    "titulo": "Sweater de lana trenzado",
+    "precio": 5500,
+    "stock": 7,
+    "category": "invierno",
+    "cartTexto": "Tejido trenzado en lana gruesa. Ideal para los días de frío seco.",
+    "imagen": "./items/sweater-lana-trenzado.svg"
+  },
+  {
+    "id": "tapado-panio",
+    "titulo": "Tapado de paño",
+    "precio": 12000,
+    "stock": 2,
+    "category": "invierno",
+    "cartTexto": "Tapado largo de paño con botonadura simple. Pieza de abrigo formal.",
+    "imagen": "./items/tapado-panio.svg"
+  },
+  {
+    "id": "bufanda-tejida",
+    "titulo": "Bufanda tejida a mano",
+    "precio": 1800,
+    "stock": 15,
+    "category": "invierno",
+    "cartTexto": "Bufanda tejida a mano en dos tonos. Casi dos metros de largo.",
+    "imagen": "./items/bufanda-tejida.svg"
+  },
+  {
+    "id": "remera-algodon",
+    "titulo": "Remera lisa de algodón",
+    "precio": 1500,
+    "stock": 20,
+    "category": "verano",
+    "cartTexto": "Remera de algodón peinado, cuello redondo. Básico de entretiempo.",
+    "imagen": "./items/remera-algodon.svg"
+  },
+  {
+    "id": "short-jean-tiro-alto",
+    "titulo": "Short de jean tiro alto",
+    "precio": 2800,
+    "stock": 9,
+    "category": "verano",
+    "cartTexto": "Short de jean tiro alto con dobladillo deshilachado.",
+    "imagen": "./items/short-jean-tiro-alto.svg"
+  },
+  {
+    "id": "camisa-hawaiana",
+    "titulo": "Camisa hawaiana",
+    "precio": 3200,
+    "stock": 6,
+    "category": "verano",
+    "cartTexto": "Camisa de viscosa con estampa tropical. Manga corta, calce amplio.",
+    "imagen": "./items/camisa-hawaiana.svg"
+  },
+  {
+    "id": "vestido-floreado",
+    "titulo": "Vestido floreado",
+    "precio": 4500,
+    "stock": 5,
+    "category": "verano",
+    "cartTexto": "Vestido midi de gasa con estampa floral y breteles ajustables.",
+    "imagen": "./items/vestido-floreado.svg"
+  },
+  {
+    "id": "cardigan-punto",
+    "titulo": "Cardigan de punto",
+    "precio": 4200,
+    "stock": 8,
+    "category": "otonio",
+    "cartTexto": "Cardigan de punto fino con bolsillos al frente.",
+    "imagen": "./items/cardigan-punto.svg"
+  },
+  {
+    "id": "camisa-franela",
+    "titulo": "Camisa de franela",
+    "precio": 3800,
+    "stock": 11,
+    "category": "otonio",
+    "cartTexto": "Camisa de franela a cuadros, algodón grueso. Se usa abierta o cerrada.",
+    "imagen": "./items/camisa-franela.svg"
+  },
+  {
+    "id": "pantalon-corderoy",
+    "titulo": "Pantalón de corderoy",
+    "precio": 5900,
+    "stock": 6,
+    "category": "otonio",
+    "cartTexto": "Pantalón de corderoy de cintura media y pierna recta.",
+    "imagen": "./items/pantalon-corderoy.svg"
+  },
+  {
+    "id": "blazer-oversize",
+    "titulo": "Blazer oversize",
+    "precio": 7500,
+    "stock": 3,
+    "category": "otonio",
+    "cartTexto": "Blazer oversize con hombreras estructuradas. Forrado.",
+    "imagen": "./items/blazer-oversize.svg"
+  },
+  {
+    "id": "chaleco-jean",
+    "titulo": "Chaleco de jean",
+    "precio": 2500,
+    "stock": 12,
+    "category": "primavera",
+    "cartTexto": "Chaleco de jean desgastado, sin mangas. Combina con casi todo.",
+    "imagen": "./items/chaleco-jean.svg"
+  },
+  {
+    "id": "blusa-gasa",
+    "titulo": "Blusa de gasa",
+    "precio": 2200,
+    "stock": 10,
+    "category": "primavera",
+    "cartTexto": "Blusa de gasa liviana con mangas abullonadas.",
+    "imagen": "./items/blusa-gasa.svg"
+  },
+  {
+    "id": "pollera-plisada",
+    "titulo": "Pollera plisada",
+    "precio": 4900,
+    "stock": 7,
+    "category": "primavera",
+    "cartTexto": "Pollera plisada a media pierna con cintura elastizada.",
+    "imagen": "./items/pollera-plisada.svg"
+  },
+  {
+    "id": "rompevientos-retro",
+    "titulo": "Rompevientos retro",
+    "precio": 6200,
+    "stock": 4,
+    "category": "primavera",
+    "cartTexto": "Rompevientos de nylon con bloques de color ochentosos.",
+    "imagen": "./items/rompevientos-retro.svg"
+  }
+]
